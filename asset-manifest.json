@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/visproj/static/css/main.1e8453c1.css",
+    "main.js": "/visproj/static/js/main.18b1988d.js",
+    "static/js/453.64105b0e.chunk.js": "/visproj/static/js/453.64105b0e.chunk.js",
+    "static/media/tips.csv": "/visproj/static/media/tips.43007c7e472255eef549.csv",
+    "index.html": "/visproj/index.html",
+    "main.1e8453c1.css.map": "/visproj/static/css/main.1e8453c1.css.map",
+    "main.18b1988d.js.map": "/visproj/static/js/main.18b1988d.js.map",
+    "453.64105b0e.chunk.js.map": "/visproj/static/js/453.64105b0e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e8453c1.css",
+    "static/js/main.18b1988d.js"
+  ]
+}
