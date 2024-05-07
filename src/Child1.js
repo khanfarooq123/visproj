@@ -26,42 +26,40 @@ class Child1 extends Component {
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     // Add X axis
-    var x_data = data.map(item => item.total_bill);
-    const x_scale = d3.scaleLinear()
-      .domain([0, d3.max(x_data)])
-      .range([margin.left, w]);
+    var x_data = data.map(d => d.x);
+    var x_scale = d3
+      .scaleLinear()
+      .range([0, w])
 
     container.selectAll(".x_axis_g")
-      .data([0])
+      .data(x_data)
       .join('g')
       .attr("class", 'x_axis_g')
       .attr("transform", `translate(0, ${h})`)
       .call(d3.axisBottom(x_scale));
 
     // Add Y axis
-    var y_data = data.map(item => item.tip);
+    var y_data = data.map(d => d.y);
     const y_scale = d3.scaleLinear()
-      .domain([0, d3.max(y_data)])
+      .domain(y_data)
       .range([h, 0]);
 
     container.selectAll(".y_axis_g")
-      .data([0])
+      .data(y_data)
       .join('g')
       .attr("class", 'x_axis_g')
       .attr("transform", `translate(${margin.left}, 0)`)
       .call(d3.axisLeft(y_scale));
 
-    container.selectAll("circle")
+    container.selectAll('g')
       .data(data)
-      .join("circle")
-      .attr("cx", function (d) {
-        return x_scale(d.total_bill);
-      })
-      .attr("cy", function (d) {
-        return y_scale(d.tip);
-      })
-      .attr("r", 3)
-      .style("fill", "#69b3a2");
+      .selectAll("dot")
+      .enter()
+      .append("circle")
+        .attr("cx", function (d) { return x_scale(d.x);})
+        .attr("cy", function (d) { return y_scale(d.y);})
+        .attr("r", 1.5)
+        .style("fill", "#69b3a2")
   }
 
   render() {
